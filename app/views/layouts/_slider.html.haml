@@ -1,0 +1,47 @@
+/ slideshow
+.container
+  .bxslider-wrapper.clearfix
+    .bxslider
+      .img
+        =image_tag "dota-2-wallpaper.jpg", class: 'animated bounce'
+        %a{:href => "#"}
+          .title
+            %h2.animated.fadeInLeft Глобальные новости
+            .clearfix
+            %h1.animated.fadeInRight Сегодня стартовал первый чепионат во Dota 2
+            .clearfix
+            %p.animated.fadeInLeft Много игроков приняло участиве в этом грандиозном и торжественом событии, скоро будут оглашены результаты
+      .img
+        =image_tag "dota-2-wallpaper.jpg"
+        %a{:href => "#"}
+          .title
+            %h2 Новость 2
+            .clearfix
+            %h1 Сегодня стартовал второй чепионат во Dota 2
+            .clearfix
+            %p Много игроков приняло участиве в этом грандиозном и торжественом событии, скоро будут оглашены результаты
+      .img
+        =image_tag "dota-2-wallpaper.jpg"
+        %a{:href => "#"}
+          .title
+            %h2 Новость 3
+            .clearfix
+            %h1 Сегодня стартовал третий чепионат во Dota 2
+            .clearfix
+            %p Много игроков приняло участиве в этом грандиозном и торжественом событии, скоро будут оглашены результаты
+    #bx-tabs
+      .bx-nav.pull-left.col-md-3.no-padding
+        %a{"data-slide-index" => "0", :href => "#"}
+          .bx-section
+            %h3 Взрывы в доте
+      .bx-nav.pull-left.col-md-3.no-padding
+        %a{"data-slide-index" => "1", :href => "#"}
+          .bx-section
+            %h3 Лучшие игры 2015
+      .bx-nav.pull-left.col-md-3.no-padding
+        %a{"data-slide-index" => "2", :href => "#"}
+          .bx-section
+            %h3 Самые интересное
+    .clearfix
+    #progressbar
+/ ./slideshow

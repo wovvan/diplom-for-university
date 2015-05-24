@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b Type:
+  = @game.type
+%p
+  %b Mode:
+  = @game.mode
+%p
+  %b Rate:
+  = @game.rate
+%p
+  %b Kill:
+  = @game.kill
+%p
+  %b Tower:
+  = @game.tower
+%p
+  %b Rune:
+  = @game.rune
+%p
+  %b Not top bott line:
+  = @game.not_top_bott_line
+%p
+  %b Neutral:
+  = @game.neutral
+
+= link_to 'Edit', edit_game_path(@game)
+\|
+= link_to 'Back', games_path

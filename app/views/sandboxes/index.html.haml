@@ -1,0 +1,19 @@
+%h1 Listing sandboxes
+
+%table
+  %thead
+    %tr
+      %th
+      %th
+      %th
+      
+  %tbody
+    - @sandboxes.each do |sandbox|
+      %tr
+        %td= link_to 'Show', sandbox
+        %td= link_to 'Edit', edit_sandbox_path(sandbox)
+        %td= link_to 'Destroy', sandbox, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Sandbox', new_sandbox_path

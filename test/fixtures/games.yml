@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: MyString
+  mode: MyString
+  rate: MyString
+  kill: MyString
+  tower: MyString
+  rune: false
+  not_top_bott_line: false
+  neutral: false
+
+two:
+  type: MyString
+  mode: MyString
+  rate: MyString
+  kill: MyString
+  tower: MyString
+  rune: false
+  not_top_bott_line: false
+  neutral: false

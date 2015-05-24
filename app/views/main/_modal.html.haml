@@ -1,0 +1,122 @@
+/ Modal
+#create-game.modal{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+        %h3#myModalLabel Создать заявку
+      .modal-body
+        %p При создании заявки с вашего счета списывается сумма равная вашей ставке
+        %h3 Тип игры
+        %ul.margin-bottom.nav.nav-pills.sel-type-create-game
+          %li.active
+            %a{:href => "#", :v => "1"} 1x1
+          %li
+            %a{:href => "#", :v => "2"} 2x2
+          %li
+            %a{:href => "#", :v => "3"} 3x3
+          %li
+            %a{:href => "#", :v => "4"} 4x4
+          %li
+            %a{:href => "#", :v => "5"} 5x5
+        %input#create_game_type{:name => "type", :type => "hidden", :value => "1"}
+          %h3 Мод игры
+          %ul.nav.nav-pills.margin-bottom.sel-mode-create-game
+            %li.active
+              %a{"data-placement" => "top", "data-toggle" => "tooltip", :href => "#", :title => "All Pick", :v => "1"} AP
+            %li
+              %a{"data-placement" => "top", "data-toggle" => "tooltip", :href => "#", :title => "Captains mode", :v => "2"} CM
+            %li
+              %a{"data-placement" => "top", "data-toggle" => "tooltip", :href => "#", :title => "All Random", :v => "3"} AR
+            %li
+              %a{"data-placement" => "top", "data-toggle" => "tooltip", :href => "#", :title => "Single Draft", :v => "4"} SD
+            %li
+              %a{"data-placement" => "top", "data-toggle" => "tooltip", :href => "#", :title => "Mid Only", :v => "5"} MO
+            %li
+              %a{"data-placement" => "top", "data-toggle" => "tooltip", :href => "#", :title => "Для всех один случайный герой", :v => "7"} ARSH
+            %li
+              %a{"data-placement" => "top", "data-toggle" => "tooltip", :href => "#", :title => "All Pick (5x5) с ботами - свободные слоты занимают боты", :v => "8"} AP+AI
+            %li
+              %a{"data-placement" => "top", "data-toggle" => "tooltip", :href => "#", :title => "All Random (5x5) с ботами - свободные слоты занимают боты", :v => "9"} AR+AI
+          %input#create_game_mode{:name => "mode", :type => "hidden", :value => "1"}
+            %h3 Ставка
+            %ul.nav.margin-bottom.nav-pills.sel-stavka-create-game
+              %li.active
+                %a{:href => "#", :v => "10"} 10 руб.
+              %li
+                %a{:href => "#", :v => "50"} 50 руб.
+              %li
+                %a{:href => "#", :v => "100"} 100 руб.
+              %li
+                %a{:href => "#", :v => "200"} 200 руб.
+              %li
+                %a{:href => "#", :v => "300"} 300 руб.
+              %li
+                %a{:href => "#", :v => "500"} 500 руб.
+            %label Своя ставка
+            .input-group.margin-bottom
+              %input#create_game_stavka.form-control{:name => "stavka", :type => "text", :value => "50"}
+                %span.input-group-addon{"data-placement" => "top", "data-toggle" => "tooltip", :title => "К примеру 1 : 2 означает что при ставке 10р, вы отдаете 20р а ваш опонент 10р. Если вы выиграте вы получите 10р. если ваш противник то он получит 20р."}
+                  %span#plecho_stavka
+                    плечо
+                    %select{:name => "plecho"}
+                      %option{:value => "0"} 1 : 1
+                      %option{:value => "1"} 1 : 2
+                      %option{:value => "2"} 1 : 3
+                      %option{:value => "3"} 1 : 4
+                      %option{:value => "4"} 1 : 5
+            %div
+              %h3 Опции
+              .row
+                .col-xs-4
+                  .form-group
+                    .game-options
+                      %label
+                        %input{:name => "rune", :type => "hidden", :value => "0"}
+                          %input{:checked => "", :name => "rune", :type => "checkbox", :value => "1"}
+                            С рунами
+                      %label
+                        %input{:name => "not_neutral", :type => "hidden", :value => "1"}
+                          %input{:checked => "", :name => "not_neutral", :type => "checkbox", :value => "0"}
+                            С нейтралами
+                      %label#not_top_bott_line
+                        %input{:name => "not_top_bott_line", :type => "hidden", :value => "0"}
+                          %input{:name => "not_top_bott_line", :type => "checkbox", :value => "1"}
+                            Крипы только мид
+                    %label#hidden_lobby
+                      %input{:name => "hidden", :type => "hidden", :value => "0"}
+                        %input{:name => "hidden", :type => "checkbox", :value => "1"}
+                          Скрывать логины
+                .col-xs-4
+                  .game-options
+                    .form-group
+                      %label До
+                      %select{:name => "limit_kill"}
+                        %option{:value => "0"} -----
+                        %option{:value => "1"} 1
+                        %option{:value => "2"} 2
+                        %option{:value => "3"} 3
+                        %option{:value => "4"} 4
+                        %option{:value => "5"} 5
+                      смертей
+                    .disable_hero.label.label-danger
+                      без бруды и джакиро
+                .col-xs-4
+                  .form-group
+                    .game-options
+                      %label До
+                      %select{:name => "limit_tower"}
+                        %option{:value => "0"} -----
+                        %option{:value => "1"} 1
+                        %option{:value => "2"} 2
+                      вышек
+            .solomid_desc.hidden
+              %h3 Опции
+              2 кила или 1 вышка
+            #id_hero_sel{:style => "display: none;"}
+              %label Герой
+              %select#select_heroes{:name => "hero"}
+                %option{:value => "0"} Не важно
+      .modal-footer
+        %button.btn.margin-top{"aria-hidden" => "true", "data-dismiss" => "modal"} Закрыть
+        %button.btn.margin-top.btn-primary Создать заявку

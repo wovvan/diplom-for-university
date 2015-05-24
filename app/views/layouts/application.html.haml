@@ -1,0 +1,595 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %title Турниры по Dota2
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag :application
+    /= javascript_include_tag :application
+    = csrf_meta_tags 
+  %body
+    / sub navigation
+    #sub-navigation
+      .container
+        %ul#user-interface
+          - if session.key? :user
+            %li
+              %a{:href => "/myprofile"}
+                Hi #{session[:user]["nickname"]}
+            %li= image_tag session[:user]["image"], class: 'avatar'
+            %li
+              %a{:href => "/logout"} Logout
+          - else
+            %li= link_to image_tag("http://cdn.steamcommunity.com/public/images/signinthroughsteam/sits_small.png"), '/auth/steam'
+          %li
+            %a{:href => "/faq"} FAQ
+          %li
+            %a{:href => "/faq"} Помощь
+        / %ul.nav.navbar-nav.navbar-right{:style => "background: #DFA9A9;"}
+        /   %li
+        /     %a#informer_new_message.f-s-14{:href => "#", :style => "padding-top: 10px; padding-bottom: 10px;"}
+        /       %i.fa.fa-envelope
+        /       %span.number_unread.label{:style => "display: none;"} 0
+        /   %li.dropdown.navbar-user
+        /     %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "javascript:;", :style => "padding-top: 10px; padding-bottom: 10px;"}
+        /       %img{:src => "http://dizard.ru/public/tmp/img/50_50_auto/56005.jpg", :style => "width: 20px;"}
+        /         %span.hidden-xs WOVVAN
+        /         %span.badge.badge-success
+        /           50.00 руб.
+        /         %b.caret
+        /     %ul.dropdown-menu.animated.fadeInLeft
+        /       %li.arrow
+        /       %li
+        /         %a{:href => "/user/personal"}
+        /           %i.fa.fa-user
+        /           Личный кабинет
+        /       %li
+        /         %a{:href => "/user/74266"}
+        /           %i.glyphicon.glyphicon-stats
+        /           Профиль
+        /       %li
+        /         %a{:href => "/user/personal/purse/add-money"}
+        /           %i.fa.fa-rub
+        /           Пополнить
+        /       %li.divider
+        /       %li
+        /         %a{:href => "/user/logout"}
+        /           %i.fa.fa-power-off
+        /           Выйти
+        /
+          <div id="top-social">
+          <span>Receive daily updates:</span>
+          <ul>
+          <li><a href="#" class="tip facebook" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="#" class="tip twitter" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="#" class="tip youtube" data-toggle="tooltip" data-placement="bottom" title="Youtube"><i class="fa fa-youtube"></i></a></li>
+          </ul>
+          </div>
+        .to-top.display-none
+          %a{:href => "#"}
+            %i.fa.fa-chevron-up
+    / ./sub navigation
+    / header
+    %header
+      .container
+        /
+          <div class="logo pull-left"><a href="index.html"><img src="images/logo.png" alt="logo" /></a></div>
+          <div class="advertisement pull-right"><div class="inline"><a href="#"><img src="images/header_advertisement.png" alt="advertisement" /></a></div></div>
+      / navigation
+      #navigation
+        .container
+          = render_navigation #:expand_all => true, :renderer => :bootstrap
+          / search
+          #search.pull-right
+            %form.form-inline{:method => "post"}
+              %input.form-control{:placeholder => "Поиск...", :type => "text"}/
+              %button.btn.btn-primary{:type => "submit"}
+                %i.fa.fa-search
+        / ./main navigation
+    / ./headerer
+    /= render "layouts/slider";
+    - if (controller_path == 'main')
+      = render "main/slider";
+    / wrapper
+    .container
+      #wrapper.clearfix
+        / sidebar section
+        .col-md-4.no-padding.right-sidebar
+          #sidebar.sidebar-alignment
+            / chat
+            .sidebar-section
+              .title
+                %i.fa.fa-gamepad
+                Чат
+              .panel.panel-default
+                .scrollspy-example{"data-offset" => "0", "data-spy" => "scroll", :style => "height:300px;"}
+                  .bg-success.clearfix{:style => "padding:10px;"}
+                    .chat-text
+                      %span.nikename WOVVAN
+                      %span.nikename :
+                      го дота пацаны хочу играть го го го текст го го го текст го го го текст го го го текст
+                    .time
+                      %span.label.label-warning 21:00
+                  .bg-info.clearfix{:style => "padding:10px;"}
+                    .chat-text
+                      %span.nikename PGG
+                      %span.nikename :
+                      Все норм сейчас зайду
+                    .time
+                      %span.label.label-warning 21:01
+                  .bg-success.clearfix{:style => "padding:10px;"}
+                    .chat-text
+                      %span.nikename WOVVAN
+                      %span.nikename :
+                      давай жду
+                    .time
+                      %span.label.label-warning 21:02
+                  .bg-info.clearfix{:style => "padding:10px;"}
+                    .chat-text
+                      %span.nikename PGG
+                      %span.nikename :
+                      все я зашел
+                    .time
+                      %span.label.label-warning 21:01
+                  .bg-success.clearfix{:style => "padding:10px;"}
+                    .chat-text
+                      %span.nikename WOVVAN
+                      %span.nikename :
+                      выворачивай корманы, сейчас наказывать буду
+                    .time
+                      %span.label.label-warning 21:00
+                  .bg-info.clearfix{:style => "padding:10px;"}
+                    .chat-text
+                      %span.nikename PGG
+                      %span.nikename :
+                      Все норм сейчас зайду
+                    .time
+                      %span.label.label-warning 21:01
+                  .bg-success.clearfix{:style => "padding:10px;"}
+                    .chat-text
+                      %span.nikename WOVVAN
+                      %span.nikename :
+                      го дота пацаны хочу играть го го го текст го го го текст го го го текст го го го текст
+                    .time
+                      %span.label.label-warning 21:00
+                  .bg-info.clearfix{:style => "padding:10px;"}
+                    .chat-text
+                      %span.nikename PGG
+                      %span.nikename :
+                      Все норм сейчас зайду
+                    .time
+                      %span.label.label-warning 21:01
+                .panel-footer.clearfix
+                  .form-wrap
+                    %form.form{:method => "post", :role => "form"}
+                      .form-group
+                        %input.form-control{:autocomplete => "off", :maxlength => "500", :name => "message", :placeholder => "Введите текст вашего сообщения...", :type => "text"}
+                      .text-center{:style => "font-size:18px;"}
+                        %button.btn-primary.btn-flat Отправить
+            / chat
+            / latest games
+            .sidebar-section
+              .title
+                %i.fa.fa-gamepad
+                Top-10 игроков
+              .tab-content
+                %ul#all.tab-pane.fade.in.active.content
+                  / row #1
+                  %li.clearfix
+                    .number.pull-left 1
+                    .details
+                      .pull-left
+                        %h5
+                          %a{:href => "#"} Battlefield 4
+                        %span.category XBOX ONE
+                        .sidebar-info.line-height
+                          May 22, 2013 -
+                          %a{:href => "#"} 14 Comments
+                      .rate.pull-right
+                        %span.label.label-success 60%
+                  / row #5
+                  %li.clearfix
+                    .number.pull-left 5
+                    .details
+                      .pull-left
+                        %h5
+                          %a{:href => "#"} GRID 2
+                        %span.category PC
+                        .sidebar-info.line-height
+                          May 22, 2013 -
+                          %a{:href => "#"} 14 Comments
+                      .rate.pull-right
+                        %span.label.label-danger 25%
+                %ul#pc.tab-pane.fade.content
+                  / row #1
+                  %li.clearfix
+                    .thumb.pull-left
+                      %img{:alt => "", :src => "aplication.js/36x48"}/
+                    .details
+                      .pull-left
+                        %h5
+                          %a{:href => "#"} GRID 2
+                        %span.category PC
+                        .sidebar-info.line-height
+                          May 22, 2013 -
+                          %a{:href => "#"} 14 Comments
+                      .rate.pull-right
+                        %span.label.label-success 60%
+                  / row #2
+                  %li.clearfix
+                    .thumb.pull-left
+                      %img{:alt => "", :src => "aplication.js/36x48"}/
+                    .details
+                      .pull-left
+                        %h5
+                          %a{:href => "#"} Thief
+                        %span.category PC
+                        .sidebar-info.line-height
+                          May 22, 2013 -
+                          %a{:href => "#"} 14 Comments
+                      .rate.pull-right
+                        %span.label.label-warning 40%
+                  / row #3
+                  %li.clearfix
+                    .thumb.pull-left
+                      %img{:alt => "", :src => "aplication.js/36x48"}/
+                    .details
+                      .pull-left
+                        %h5
+                          %a{:href => "#"} Call of Duty: Ghost
+                        %span.category PC
+                        .sidebar-info.line-height
+                          May 22, 2013 -
+                          %a{:href => "#"} 14 Comments
+                      .rate.pull-right
+                        %span.label.label-success 70%
+                  / row #4
+                  %li.clearfix
+                    .thumb.pull-left
+                      %img{:alt => "", :src => "aplication.js/36x48"}/
+                    .details
+                      .pull-left
+                        %h5
+                          %a{:href => "#"} Remember Me
+                        %span.category PC
+                        .sidebar-info.line-height
+                          May 22, 2013 -
+                          %a{:href => "#"} 14 Comments
+                      .rate.pull-right
+                        %span.label.label-danger 10%
+                  / row #5
+                  %li.clearfix
+                    .thumb.pull-left
+                      %img{:alt => "", :src => "aplication.js/36x48"}/
+                    .details
+                      .pull-left
+                        %h5
+                          %a{:href => "#"} Assassins's Creed: Black...
+                        %span.category PC
+                        .sidebar-info.line-height
+                          May 22, 2013 -
+                          %a{:href => "#"} 14 Comments
+                      .rate.pull-right
+                        %span.label.label-success 80%
+                %ul#xboxone.tab-pane.fade.content
+                  / row #1
+                  %li.clearfix
+                    .thumb.pull-left
+                      %img{:alt => "", :src => "aplication.js/36x48"}/
+                    .details
+                      .pull-left
+                        %h5
+                          %a{:href => "#"} Mortal Kombat
+                        %span.category XBOX ONE
+                        .sidebar-info.line-height
+                          May 22, 2013 -
+                          %a{:href => "#"} 14 Comments
+                      .rate.pull-right
+                        %span.label.label-warning 40%
+                  / row #2
+                  %li.clearfix
+                    .thumb.pull-left
+                      %img{:alt => "", :src => "aplication.js/36x48"}/
+                    .details
+                      .pull-left
+                        %h5
+                          %a{:href => "#"} Grand Theft Auto V
+                        %span.category XBOX ONE
+                        .sidebar-info.line-height
+                          May 22, 2013 -
+                          %a{:href => "#"} 14 Comments
+                      .rate.pull-right
+                        %span.label.label-success 90%
+                  / row #3
+                  %li.clearfix
+                    .thumb.pull-left
+                      %img{:alt => "", :src => "aplication.js/36x48"}/
+                    .details
+                      .pull-left
+                        %h5
+                          %a{:href => "#"} FIFA 14
+                        %span.category XBOX ONE
+                        .sidebar-info.line-height
+                          May 22, 2013 -
+                          %a{:href => "#"} 14 Comments
+                      .rate.pull-right
+                        %span.label.label-danger 10%
+                  / row #4
+                  %li.clearfix
+                    .thumb.pull-left
+                      %img{:alt => "", :src => "aplication.js/36x48"}/
+                    .details
+                      .pull-left
+                        %h5
+                          %a{:href => "#"} Metro: Last Light
+                        %span.category XBOX ONE
+                        .sidebar-info.line-height
+                          May 22, 2013 -
+                          %a{:href => "#"} 14 Comments
+                      .rate.pull-right
+                        %span.label.label-warning 20%
+                  / row #5
+                  %li.clearfix
+                    .thumb.pull-left
+                      %img{:alt => "", :src => "aplication.js/36x48"}/
+                    .details
+                      .pull-left
+                        %h5
+                          %a{:href => "#"} Need for Speed
+                        %span.category XBOX ONE
+                        .sidebar-info.line-height
+                          May 22, 2013 -
+                          %a{:href => "#"} 14 Comments
+                      .rate.pull-right
+                        %span.label.label-success 60%
+            / ./latest games
+            / advertisement
+            .sidebar-section.advertisement
+              %a{:href => "#"}
+                %img{:alt => "", :src => "aplication.js/300x250"}/
+            / ./advertisement
+            / facebook
+            .sidebar-section
+              .title
+                %i.fa.fa-thumbs-up
+                Смотреть игру
+              .facebook-like-box
+            .sidebar-section
+              .title
+                %i.fa.fa-thumbs-up
+                Facebook
+              .facebook-like-box
+                %iframe{:allowTransparency => "true", :frameborder => "0", :scrolling => "no", :src => "//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fenvato&amp;width=298&amp;height=258&amp;show_faces=true&amp;colorscheme=light&amp;stream=false&amp;show_border=false&amp;header=false&amp;appId=508045159210483", :style => "border:none; overflow:hidden; width:298px; height:258px;"}
+            / ./facebook
+        /=render "layouts/modal"
+        /= render 'games/form'
+        / ./sidebar section
+        .col-md-8.no-padding 
+          =yield
+    / ./wrapper
+    / footer
+    %footer
+      / footer widget
+      .footer-widget
+        .container
+          .row.no-margin
+            / about
+            .col-md-3
+              %h3 О indiecups.com
+              %ul
+                %li
+                  %h5
+                    %a{:href => "#"} Сайт indiecups.com
+                    %h5
+                %li
+                  %h5
+                    %a{:href => "#"} Топ 100 пользователей
+                    %h5
+                %li
+                  %h5
+                    %a{:href => "#"} Реклама
+                    %h5
+            / help
+            .col-md-3
+              %h3 Помощь
+              %ul
+                %li.clearfix
+                  %h5
+                    %a{:href => "#"} Регистрация
+                    %h5
+                %li.clearfix
+                  %h5
+                    %a{:href => "#"} Как тут играть
+                    %h5
+                %li.clearfix
+                  %h5
+                    %a{:href => "#"} Герои
+                    %h5
+                %li.clearfix
+                  %h5
+                    %a{:href => "#"} Ставки
+                    %h5
+            / publics
+            .col-md-3
+              %h3 Паблики
+              %ul
+                %li.clearfix
+                  %h5
+                    %a{:href => "#"} vk.com/indiecups
+                    %h5
+            / help us
+            .col-md-3
+              %h4 Помощь в развитии проекта
+              %ul
+                %li
+                  .text
+                    Мы очень крутые. Помогите.
+                    %br/
+                    %br/
+                    %a.btn.btn-warning.btn-flat.btn-block{:href => "#"} Donate
+      / ./footer widget
+      / footer bottom
+      .footer-bottom
+        .container
+          %ul
+            %li &copy; 2015 INDIECUPS. All rights reserved.
+      / ./footer bottom
+    / ./footer
+    / sign-in modal
+    / Modal
+    #signin.modal{"aria-hidden" => "true", "aria-labelledby" => "signin-title", :role => "dialog", :tabindex => "-1"}
+      .modal-dialog
+        .modal-content
+          .modal-header
+            %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} &times;
+            %h4#signin-title.modal-title
+              %i.fa.fa-sign-in
+              Sign In
+          .modal-body
+            %form.separated.clearfix{:action => "#", :method => "post"}
+              .modal-section.modal-padding.col-md-6
+                %h5 Login to account
+                .control-group
+                  %label.control-label{:for => "email"} Email
+                  .controls
+                    %input#email.form-control{:placeholder => "Email", :required => "", :type => "text"}
+                .control-group
+                  %label.control-label{:for => "password"} Password
+                  .controls
+                    %input#password.form-control{:placeholder => "Password", :required => "", :type => "password"}
+                .control-group
+                  %button.btn.btn-success{:type => "button"} Sign In
+              .col-md-6.social-login
+                %h5 Social Login
+                %ul
+                  %li
+                    %a.btn.facebook.form-control.no-border-radius{:href => ""}
+                      %i.fa.fa-facebook
+                      sign in with Facebook
+                  %li
+                    %a.btn.twitter.form-control.no-border-radius{:href => ""}
+                      %i.fa.fa-twitter
+                      sign in with Twitter
+                  %li
+                    %a.btn.google-plus.form-control.no-border-radius{:href => ""}
+                      %i.fa.fa-google-plus
+                      sign in with Google
+          .modal-footer
+            Don’t have an account?
+            %a.btn.btn-xs.btn-primary{:href => "#"} Register
+        / /.modal-content
+      / /.modal-dialog
+    / /.modal
+    / ./sign-in modal
+    / register modal
+    / Modal
+    #register.modal{"aria-hidden" => "true", "aria-labelledby" => "register-title", :role => "dialog", :tabindex => "-1"}
+      .modal-dialog
+        .modal-content
+          .modal-header
+            %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} &times;
+            %h4#register-title.modal-title
+              %i.fa.fa-user
+              Create Account
+          .modal-body
+            %form.clearfix{:action => "#", :method => "post"}
+              %h5 New Account
+              .alert.alert-simple
+                %i.fa.fa-info
+                All fields are required
+              .row
+                .control-group.col-md-6
+                  %label.control-label{:for => "username"} Username
+                  .controls
+                    %input#username.form-control{:placeholder => "Username", :required => "", :type => "text"}
+                .control-group.col-md-6
+                  %label.control-label{:for => "email"} Email
+                  .controls
+                    %input#email.form-control{:placeholder => "Email", :required => "", :type => "text"}
+                .control-group.col-md-6
+                  %label.control-label{:for => "password"} Password
+                  .controls
+                    %input#password.form-control{:placeholder => "Password", :required => "", :type => "password"}
+                .control-group.col-md-6
+                  %label.control-label{:for => "repeat-password"} Repeat Password
+                  .controls
+                    %input#repeat-password.form-control{:placeholder => "Password", :required => "", :type => "password"}
+                .control-group.col-md-12
+                  %label.control-label{:for => "repeat-password"} Repeat Password
+                  .controls
+                    %input#repeat-password.form-control{:placeholder => "Password", :required => "", :type => "password"}
+                .control-group.col-md-12
+                  .checkbox.check-default.no-padding.no-margin
+                    %input#checkbox{:checked => "checked", :type => "checkbox"}
+                      %label{:for => "checkbox"} Accept terms and service.
+          .modal-footer
+            %button.btn.btn-primary{:type => "button"} Create Account
+        / /.modal-content
+      / /.modal-dialog
+    / /.modal
+    / ./register modal
+    / register modal
+    / Modal
+    #register.modal{"aria-hidden" => "true", "aria-labelledby" => "register-title", :role => "dialog", :tabindex => "-1"}
+      .modal-dialog
+        .modal-content
+          .modal-header
+            %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} &times;
+            %h4#register-title.modal-title
+              %i.fa.fa-user
+              Create Account
+          .modal-body
+            %form.clearfix{:action => "#", :method => "post"}
+              %h5 New Account
+              .alert.alert-simple
+                %i.fa.fa-info
+                All fields are required
+              .row
+                .control-group.col-md-6
+                  %label.control-label{:for => "username"} Username
+                  .controls
+                    %input#username.form-control{:placeholder => "Username", :required => "", :type => "text"}
+                .control-group.col-md-6
+                  %label.control-label{:for => "email"} Email
+                  .controls
+                    %input#email.form-control{:placeholder => "Email", :required => "", :type => "text"}
+                .control-group.col-md-6
+                  %label.control-label{:for => "password"} Password
+                  .controls
+                    %input#password.form-control{:placeholder => "Password", :required => "", :type => "password"}
+                .control-group.col-md-6
+                  %label.control-label{:for => "repeat-password"} Repeat Password
+                  .controls
+                    %input#repeat-password.form-control{:placeholder => "Password", :required => "", :type => "password"}
+                .control-group.col-md-12
+                  %label.control-label{:for => "repeat-password"} Repeat Password
+                  .controls
+                    %input#repeat-password.form-control{:placeholder => "Password", :required => "", :type => "password"}
+                .control-group.col-md-12
+                  .checkbox.check-default.no-padding.no-margin
+                    %input#checkbox{:checked => "checked", :type => "checkbox"}
+                      %label{:for => "checkbox"} Accept terms and service.
+          .modal-footer
+            %button.btn.btn-primary{:type => "button"} Create Account
+        / /.modal-content
+      / /.modal-dialog
+    / /.modal
+    / ./register modal
+    / style switcher
+    #styleswitcher.hidden
+      %h2
+        %a{:href => "#"}
+          %i.fa.fa-cogs
+      %div
+        %h3 Style Configuration
+        %h4 Color Style
+        .well
+          %ul#color1.colors
+            %li
+              %a.green{:href => "#", :title => "Green"}
+            %li
+              %a.blue{:href => "#", :title => "Blue"}
+            %li
+              %a.red{:href => "#", :title => "Red"}
+            %li
+              %a.pink{:href => "#", :title => "Pink"}
+    / ./style switcher

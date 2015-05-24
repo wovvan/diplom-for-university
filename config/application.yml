@@ -1,0 +1,12 @@
+# app secret
+SECRET_TOKEN: 'ad50d195046fd0bdf3800de4ab009944b461473009bc08dd9588a080ab79e0a0025805e62741fd70ee680e0ed1c74affc92f9857bd0dce17d13f947830e4cd25'
+
+
+# steam
+STEAM_WEB_API_KEY: '797AE569AF9F0DCF0EB45E219A27451A'
+# collections
+DB_NAME: 'alacrity'
+MATCH_COL: 'matches'
+LEAGUE_COL: 'leagues'
+ERRORGAME_COL: 'errorgames'
+USERUPLOAD_COL: 'useruploads'

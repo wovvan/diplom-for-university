@@ -1,0 +1,91 @@
+%a.btn.btn-inverse.btn-flat{"data-toggle" => "modal", :href => "/games/new", :style=>"margin:10px;"} Создать игру
+- @games.each do |game|
+  %section.clearfix
+    .pull-left.col-md-2.no-padding{:style => ""}
+      %div{:style => "text-align: center;"}
+        = image_tag session[:user]["image"], class: 'img-thumbnail', style: 'height: 100px; width: 100%; display: block;'
+        %h4 #{session[:user]["nickname"]}
+    .col-md-10
+      .rule.clearfix{:style => "float:left;"}
+        .clearfix{:style => "margin:5px;"}
+          %span.label.label-danger.mod-game
+            = game.mode
+          %span.label.label-success.count-player
+            5x5
+        .clearfix{:style => "margin:10px 5px 5px 5px;"}
+          .options-game
+            %h5
+              Опции:
+            -if game.neutral == true
+              %div{:style => "float:left;"}
+                =image_tag "prettyPhoto/for_game/netral_crip.png"
+            -if game.rune == true
+              %div{:style => "float:left;margin-left:3px;"}
+                =image_tag "prettyPhoto/for_game/rune.png"
+            -if game.not_top_bott_line == true
+              %div{:style => "float:left;margin-left:3px;"}
+                =image_tag "prettyPhoto/for_game/only_mid.png"
+          %div{:style => "float:left; margin-left:10px;"}
+            %h5
+              Условия:
+            .rule-game
+              =image_tag "prettyPhoto/for_game/scalp.png"
+              %span.label.label-danger{:style => "margin-left:2px"}
+                = game.kill
+            %div{:style => "float:left;margin-left:3px;"}
+              =image_tag "prettyPhoto/for_game/tower.png"
+              %span.label.label-success{:style => "margin-left:2px"}
+                = game.tower
+      .time-stav.clearfix{:style => "float:left;margin:5px;"}
+        .time
+          %h5 Время:
+          %h5.my-time
+            22:48
+        .stav
+          %h5{:style => "margin-bottom: 7px;"} Ставка:
+          %span.label.label-danger.my-stav{:style => "font-size:15px;"}
+            50 RUB
+      .place-enter.clearfix{:style => "float:left;margin:5px;"}
+        .place
+          %h5{:style => "margin-bottom: 7px;"} Места:
+          %span.label.label-danger.my-place{:style => "font-size:15px;"}
+            7/10
+        .enter
+          %a.btn.btn-success.btn-block.btn-flat.but-enter-game{:href => "/lobbies"} Войти
+  = link_to 'Edit', edit_game_path(game)
+  = link_to 'Destroy', game, :method => :delete, :data => { :confirm => 'Are you sure?' }
+/ %h1 Listing games
+
+/ %table
+/   %thead
+/     %tr
+/       %th Type
+/       %th Mode
+/       %th Rate
+/       %th Kill
+/       %th Tower
+/       %th Rune
+/       %th Not top bott line
+/       %th Neutral
+/       %th
+/       %th
+/       %th
+
+/   %tbody
+/     - @games.each do |game|
+/       %tr
+/         %td= game.type
+/         %td= game.mode
+/         %td= game.rate
+/         %td= game.kill
+/         %td= game.tower
+/         %td= game.rune
+/         %td= game.not_top_bott_line
+/         %td= game.neutral
+/         %td= link_to 'Show', game
+/         %td= link_to 'Edit', edit_game_path(game)
+/         %td= link_to 'Destroy', game, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+/ %br
+
+/ = link_to 'New Game', new_game_path

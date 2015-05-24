@@ -1,0 +1,397 @@
+/ .text
+/   Hi #{session[:user]["nickname"]}
+/ .img
+/   = image_tag session[:user]["image"], class: 'avatar'
+/ %a{:href => "http://ru.dotabuff.com/players/#{session[:user]["uid"]}"}
+/   Ссылка на дотабаф
+/ = session[:user]
+.padding
+  %ul.section-title.no-margin-top.clearfix
+    %li
+      %h3 Профиль пользователя
+  /
+    <div class="clearfix">
+    <ul class="section-categories">
+    <li><a href="#" class="active">All</a></li>
+    <li><a href="#">PC</a></li>
+    <li><a href="#">PS3</a></li>
+    <li><a href="#">PS4</a></li>
+    <li><a href="#">Xbox 360</a></li>
+    <li><a href="#">Xbox One</a></li>
+    <li><a href="#">WII U</a></li>
+    <li><a href="#">PS VITA</a></li>
+    <li><a href="#">Mobile</a></li>
+    <li><a href="#">Vita</a></li>
+    <li><a href="#">3DS</a></li>
+    <li><a href="#">iPhone</a></li>
+    <li><a href="#">Microsoft</a></li>
+    </ul>
+    </div>
+  / section
+  %section.clearfix
+    .pull-left.col-md-3.no-padding
+      = image_tag session[:user]["image"], style: 'height: 100px; width: 100%;'
+      .cont-container.padding-top
+        %a.btn.btn-default.border-none
+          %i.fa.fa-thumbs-up.fa-1
+        %h3
+          .margin-left-right 2
+        %a.btn.btn-default.border-none
+          %i.fa.fa-thumbs-up.fa-2
+    .col-md-9
+      %h3 
+        #{session[:user]["nickname"]}
+      %p
+      .row
+        .col-xs-4.rate-skill.alert.alert-info.no-padding
+          %span{:title => "Win Rate"} WR: 63.55%
+          %span{:title => "Skill"} Skill: 813.00
+        .col-xs-3
+          .dotabuff-logo
+            %a{:href => "http://ru.dotabuff.com/players/#{session[:user]["uid"]}"} 
+              DOTABUFF
+        .col-xs-4.btn.btn-primary.btn-load.command-button
+          %a{:href => "/dota/command/978"}
+            .img30-container{:title => "Win Rate"}
+              %img.img30{:fid => "277", :src => "http://dizard.ru/public/tmp/img/20_20_auto/277.png"}
+            %div{:style => "display:inline-block"}
+              %div команда
+              %span Noobs
+      %p
+      .details
+        %i.fa.fa-calendar-o
+        Присоединился: 18 Января, 2014
+      %p
+      .padding-top
+        .btn.btn-primary.btn-load.width49{:uid => "49725"}
+          %i.fa.fa-envelope
+          Отправить сообщение
+        .btn.btn-primary.btn-load.width49{:uid => "49725"}
+          %i.fa.fa-users
+          Добавить в друзья
+      %p
+  / section
+  %section.clearfix
+    .col-lg-12
+      .panel.panel-inverse
+        .panel-heading
+          %h3.panel-title Используемые герои в последних 100 играх
+        .panel-body
+          %div
+            %table.table.table-striped.table-scroll
+              %thead
+                %tr
+                  %th Герой
+                  %th Матчей Сыграно
+                  %th Винрейт
+              %tbody
+                %tr
+                  %td
+                    %img{:fid => "15553", :src => "http://dizard.ru/public/tmp/img/43_24_auto/15553.png"} Lich
+                  %td 13
+                  %td
+                    %strong 69.23%
+                %tr
+                  %td
+                    %img{:fid => "15612", :src => "http://dizard.ru/public/tmp/img/43_24_auto/15612.png"} Venomancer
+                  %td 9
+                  %td
+                    %strong 77.78%
+                %tr
+                  %td
+                    %img{:fid => "15599", :src => "http://dizard.ru/public/tmp/img/43_24_auto/15599.png"} Storm Spirit
+                  %td 5
+                  %td
+                    %strong 80.00%
+                %tr
+                  %td
+                    %img{:fid => "15588", :src => "http://dizard.ru/public/tmp/img/43_24_auto/15588.png"} Shadow Demon
+                  %td 4
+                  %td
+                    %strong 50.00%
+                %tr
+                  %td
+                    %img{:fid => "15529", :src => "http://dizard.ru/public/tmp/img/43_24_auto/15529.png"} Dazzle
+                  %td 3
+                  %td
+                    %strong 66.67%
+                %tr
+                  %td
+                    %img{:fid => "15608", :src => "http://dizard.ru/public/tmp/img/43_24_auto/15608.png"} Tusk
+                  %td 3
+                  %td
+                    %strong 33.33%
+                %tr
+                  %td
+                    %img{:fid => "15548", :src => "http://dizard.ru/public/tmp/img/43_24_auto/15548.png"} Jakiro
+                  %td 3
+                  %td
+                    %strong 66.67%
+                %tr
+                  %td
+                    %img{:fid => "15583", :src => "http://dizard.ru/public/tmp/img/43_24_auto/15583.png"} Razor
+                  %td 2
+                  %td
+                    %strong 0.00%
+                %tr
+                  %td
+                    %img{:fid => "15542", :src => "http://dizard.ru/public/tmp/img/43_24_auto/15542.png"} Nature's Prophet
+                  %td 2
+                  %td
+                    %strong 0.00%
+                %tr
+                  %td
+                    %img{:fid => "15609", :src => "http://dizard.ru/public/tmp/img/43_24_auto/15609.png"} Undying
+                  %td 2
+                  %td
+                    %strong 50.00%
+                %tr
+                  %td
+                    %img{:fid => "15546", :src => "http://dizard.ru/public/tmp/img/43_24_auto/15546.png"} Invoker
+                  %td 2
+                  %td
+                    %strong 0.00%
+                %tr
+                  %td
+                    %img{:fid => "15562", :src => "http://dizard.ru/public/tmp/img/43_24_auto/15562.png"} Medusa
+                  %td 2
+                  %td
+                    %strong 100.00%
+                %tr
+                  %td
+                    %img{:fid => "15592", :src => "http://dizard.ru/public/tmp/img/43_24_auto/15592.png"} Skywrath Mage
+                  %td 2
+                  %td
+                    %strong 100.00%
+                %tr
+                  %td
+                    %img{:fid => "15595", :src => "http://dizard.ru/public/tmp/img/43_24_auto/15595.png"} Slark
+                  %td 2
+                  %td
+                    %strong 100.00%
+                %tr
+                  %td
+                    %img{:fid => "15528", :src => "http://dizard.ru/public/tmp/img/43_24_auto/15528.png"} Dark Seer
+                  %td 2
+                  %td
+                    %strong 50.00%
+  / section
+  %section.clearfix
+    .col-lg-12
+      .panel.panel-inverse
+        .panel-heading
+          %h3.panel-title Последние 100 игры
+        .panel-body
+          %table.table.table-striped.table-scroll
+            %thead
+              %tr
+                %th ID
+                %th Дата
+                %th Тип
+                %th Мод
+                %th Герой
+                %th Результат
+                %th КДА
+                %th Соперник
+                %th &nbsp;
+            %tbody
+              %tr
+                %td
+                  %small 227876
+                %td
+                  %small 04 апрель 09:59
+                %td 1x1
+                %td All Pick
+                %td
+                  %img{:fid => "15542", :src => "http://dizard.ru/public/tmp/img/43_24_auto/15542.png"}
+                %td
+                  %small
+                    %span.label.label-danger Поражение
+                %td
+                  0 / 0  / 0
+                %td
+                  %img.user-ava{:src => "http://dizard.ru/public/tmp/img/25_25_auto/140337.jpg"}
+                    %a{:href => "/user/73250"} rel1zzzz
+                %td
+                  %a{:href => "http://cdn.dizard.ru/replay/227876", :target => "_blank"}
+                    %span.glyphicon.glyphicon-facetime-video
+              %tr
+                %td
+                  %small 227876
+                %td
+                  %small 04 апрель 09:59
+                %td 1x1
+                %td All Pick
+                %td
+                  %img{:fid => "15542", :src => "http://dizard.ru/public/tmp/img/43_24_auto/15542.png"}
+                %td
+                  %small
+                    %span.label.label-danger Поражение
+                %td
+                  0 / 0  / 0
+                %td
+                  %img.user-ava{:src => "http://dizard.ru/public/tmp/img/25_25_auto/140337.jpg"}
+                    %a{:href => "/user/73250"} rel1zzzz
+                %td
+                  %a{:href => "http://cdn.dizard.ru/replay/227876", :target => "_blank"}
+                    %span.glyphicon.glyphicon-facetime-video
+              %tr
+                %td
+                  %small 227876
+                %td
+                  %small 04 апрель 09:59
+                %td 1x1
+                %td All Pick
+                %td
+                  %img{:fid => "15542", :src => "http://dizard.ru/public/tmp/img/43_24_auto/15542.png"}
+                %td
+                  %small
+                    %span.label.label-danger Поражение
+                %td
+                  0 / 0  / 0
+                %td
+                  %img.user-ava{:src => "http://dizard.ru/public/tmp/img/25_25_auto/140337.jpg"}
+                    %a{:href => "/user/73250"} rel1zzzz
+                %td
+                  %a{:href => "http://cdn.dizard.ru/replay/227876", :target => "_blank"}
+                    %span.glyphicon.glyphicon-facetime-video
+              %tr
+                %td
+                  %small 227876
+                %td
+                  %small 04 апрель 09:59
+                %td 1x1
+                %td All Pick
+                %td
+                  %img{:fid => "15542", :src => "http://dizard.ru/public/tmp/img/43_24_auto/15542.png"}
+                %td
+                  %small
+                    %span.label.label-danger Поражение
+                %td
+                  0 / 0  / 0
+                %td
+                  %img.user-ava{:src => "http://dizard.ru/public/tmp/img/25_25_auto/140337.jpg"}
+                    %a{:href => "/user/73250"} rel1zzzz
+                %td
+                  %a{:href => "http://cdn.dizard.ru/replay/227876", :target => "_blank"}
+                    %span.glyphicon.glyphicon-facetime-video
+              %tr
+                %td
+                  %small 226845
+                %td
+                  %small 30 март 07:53
+                %td 1x1
+                %td Mid Only
+                %td
+                  %img{:fid => "15612", :src => "http://dizard.ru/public/tmp/img/43_24_auto/15612.png"}
+                %td
+                  %small
+                    %span.label.label-success Победа
+                %td
+                  1 / 1 / 0
+                %td
+                  %img.user-ava{:src => "http://dizard.ru/public/tmp/img/25_25_auto/6275.jpg"}
+                    %a{:href => "/user/9718"} ANANIMYS
+                %td
+                  %a{:href => "http://cdn.dizard.ru/replay/226845", :target => "_blank"}
+                    %span.glyphicon.glyphicon-facetime-video
+              %tr
+                %td
+                  %small 226845
+                %td
+                  %small 30 март 07:53
+                %td 1x1
+                %td Mid Only
+                %td
+                  %img{:fid => "15612", :src => "http://dizard.ru/public/tmp/img/43_24_auto/15612.png"}
+                %td
+                  %small
+                    %span.label.label-success Победа
+                %td
+                  1 / 1 / 0
+                %td
+                  %img.user-ava{:src => "http://dizard.ru/public/tmp/img/25_25_auto/6275.jpg"}
+                    %a{:href => "/user/9718"} ANANIMYS
+                %td
+                  %a{:href => "http://cdn.dizard.ru/replay/226845", :target => "_blank"}
+                    %span.glyphicon.glyphicon-facetime-video
+              %tr
+                %td
+                  %small 226845
+                %td
+                  %small 30 март 07:53
+                %td 1x1
+                %td Mid Only
+                %td
+                  %img{:fid => "15612", :src => "http://dizard.ru/public/tmp/img/43_24_auto/15612.png"}
+                %td
+                  %small
+                    %span.label.label-success Победа
+                %td
+                  1 / 1 / 0
+                %td
+                  %img.user-ava{:src => "http://dizard.ru/public/tmp/img/25_25_auto/6275.jpg"}
+                    %a{:href => "/user/9718"} ANANIMYS
+                %td
+                  %a{:href => "http://cdn.dizard.ru/replay/226845", :target => "_blank"}
+                    %span.glyphicon.glyphicon-facetime-video
+              %tr
+                %td
+                  %small 226845
+                %td
+                  %small 30 март 07:53
+                %td 1x1
+                %td Mid Only
+                %td
+                  %img{:fid => "15612", :src => "http://dizard.ru/public/tmp/img/43_24_auto/15612.png"}
+                %td
+                  %small
+                    %span.label.label-success Победа
+                %td
+                  1 / 1 / 0
+                %td
+                  %img.user-ava{:src => "http://dizard.ru/public/tmp/img/25_25_auto/6275.jpg"}
+                    %a{:href => "/user/9718"} ANANIMYS
+                %td
+                  %a{:href => "http://cdn.dizard.ru/replay/226845", :target => "_blank"}
+                    %span.glyphicon.glyphicon-facetime-video
+              %tr
+                %td
+                  %small 226845
+                %td
+                  %small 30 март 07:53
+                %td 1x1
+                %td Mid Only
+                %td
+                  %img{:fid => "15612", :src => "http://dizard.ru/public/tmp/img/43_24_auto/15612.png"}
+                %td
+                  %small
+                    %span.label.label-success Победа
+                %td
+                  1 / 1 / 0
+                %td
+                  %img.user-ava{:src => "http://dizard.ru/public/tmp/img/25_25_auto/6275.jpg"}
+                    %a{:href => "/user/9718"} ANANIMYS
+                %td
+                  %a{:href => "http://cdn.dizard.ru/replay/226845", :target => "_blank"}
+                    %span.glyphicon.glyphicon-facetime-video
+              %tr
+                %td
+                  %small 226845
+                %td
+                  %small 30 март 07:53
+                %td 1x1
+                %td Mid Only
+                %td
+                  %img{:fid => "15612", :src => "http://dizard.ru/public/tmp/img/43_24_auto/15612.png"}
+                %td
+                  %small
+                    %span.label.label-success Победа
+                %td
+                  1 / 1 / 0
+                %td
+                  %img.user-ava{:src => "http://dizard.ru/public/tmp/img/25_25_auto/6275.jpg"}
+                    %a{:href => "/user/9718"} ANANIMYS
+                %td
+                  %a{:href => "http://cdn.dizard.ru/replay/226845", :target => "_blank"}
+                    %span.glyphicon.glyphicon-facetime-video

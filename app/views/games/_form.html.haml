@@ -1,0 +1,44 @@
+= form_for @game do |f|
+  .modal-body
+    %p При создании заявки с вашего счета списывается сумма равная вашей ставке
+    %h3 Тип игры
+    = f.text_field :type
+    %input#create_game_type{:name => "type", :type => "hidden", :value => "1"}
+      %h3 Мод игры
+      = f.text_field :mode
+      %input#create_game_mode{:name => "mode", :type => "hidden", :value => "1"}
+        %h3 Ставка
+        = f.text_field :rate
+        %div
+          %h3 Опции
+          .row
+            .col-xs-4
+              .form-group
+                .game-options
+                  %label
+                    %input{:name => "rune", :type => "hidden", :value => "0"}
+                      = f.check_box :rune, as: :boolean
+                      С рунами
+                  %label
+                    %input{:name => "not_neutral", :type => "hidden", :value => "1"}
+                      = f.check_box :neutral, as: :boolean
+                      С нейтралами
+                  %label#not_top_bott_line
+                    %input{:name => "not_top_bott_line", :type => "hidden", :value => "0"}
+                      = f.check_box :not_top_bott_line, as: :boolean
+                      Крипы только мид
+            .col-xs-4
+              .game-options
+                .form-group
+                  %label До
+                  = f.text_field :kill
+                  смертей
+            .col-xs-4
+              .form-group
+                .game-options
+                  %label До
+                  = f.text_field :tower
+                  вышек
+  .modal-footer
+    %button.btn.margin-top{"aria-hidden" => "true", "data-dismiss" => "modal"} Закрыть
+    = f.submit "Создать заявку", class: "btn margin-top btn-primary"

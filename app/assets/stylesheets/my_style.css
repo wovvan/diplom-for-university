@@ -1,0 +1,165 @@
+.nikename{
+  font-weight: bold;
+}
+.time{
+  font-weight: bold;
+  float:left;
+  font-size:15px;
+}
+.chat-text{
+  float:left; width: 220px;
+}
+.time-local{
+  font-weight: bold;
+  float:right;
+  font-size:15px;
+}
+.chat-text-local{
+  float:left; 
+}
+.mod-game{
+  font-size:18px;
+  text-align:center;
+  width:200px;
+  width: 160px;
+  display: block;
+  float:left;
+}
+.count-player{
+  font-size:18px;
+  margin-left:10px;
+  width: 60px;
+  display: block;
+  float:left;
+}
+.options-game{
+  float:left;
+  width: 160px;
+}
+.rule-game{
+  float:left;
+  margin-left:3px;
+}
+.but-enter-game{
+  font-size: 22px; padding: 0 10px; margin-top: 13px;
+}
+
+
+
+/*------------------------------------------------------------MYSTYLE------------------------------------------------------*/
+  .cont-container{
+    margin: 0;
+    text-align: center;
+  }
+  .cont-container .fa-1{
+    transform: rotate(180deg);
+  }
+  .cont-container .margin-left-right {
+    margin: 0 10px 0
+  } 
+  .cont-container h3{
+    display: inline-block;
+  }
+  .padding-top{
+    padding-top: 10px;
+  }  
+  .border-none{
+    border: none;
+  } 
+  .dotabuff-logo{
+    box-shadow: inset 0 0 2px rgba(0,0,0,0.6);
+    /*border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;*/
+    background: #ea030e;
+    display: inline-block;
+    font-family: "Arial";
+    font-size: 14px;
+    font-weight: 600;
+    padding: 6px 8px 8px 8px;
+  }
+  .dotabuff-logo a{
+    color: white;
+    text-shadow: 0 0 3px #b8020b;
+  }
+  .dotabuff-logo a:hover{
+    color: white;
+  }
+  .dotabuff-logo:hover{
+    background: #E84A52;
+    color: white;
+  }
+  .command-button {
+    padding:0;
+    line-height: 1;
+  }
+  .command-button a{
+    color:white;
+  }
+  .command-button a:hover{
+    color:white;
+  }
+  .img30-container{
+    display: inline-block;
+    float:left;
+  }
+  .img30{
+    height:30px;
+    width:30px;
+  }
+  .img40{
+    height:40px;
+    width:40px;
+  }
+  .rate-skill{
+    margin-bottom:0;
+    margin-left:15px;
+  }
+  .rate-skill span{
+    display:block;
+    text-align:center;
+  }
+  .width49{
+    width:49%;
+  }
+  .panel-scroll{
+    height: 400px;
+    overflow: auto;
+  }
+  .panel-scroll-freids{
+    height: 200px;
+    overflow: auto;
+  }
+  .table-scroll table{
+    display: block;
+  }
+  .table-scroll thead{
+    display: block;
+  } 
+  .table-scroll thead th{
+    width: 1%;
+  }  
+  .table-scroll tbody{
+    display: block;
+    overflow-y: scroll;
+    height: 400px;
+  }
+  .table-scroll tbody td{
+    width: 1%;
+  }
+  .nav-pills>li>a {
+    border-radius: 2px;
+  }
+
+  .nav-pills>li>a:hover {
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.2), inset 0 1px 2px rgba(0,0,0,0.4);
+    background: #AEAEAE;
+    color: #fff
+  }
+  .nav-pills>li>a:focus {
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.2), inset 0 1px 2px rgba(0,0,0,0.4);
+    background: #AEAEAE;
+    color: #fff
+  }
+.avatar{
+  width: 30px;
+}

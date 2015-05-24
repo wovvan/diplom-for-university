@@ -1,0 +1,76 @@
+.padding
+  %ul.section-title.no-margin-top.clearfix
+    %li
+      %h3 Активные игры
+    %li{:style => "float:right;"}
+      %a.btn.btn-inverse.btn-flat{"data-toggle" => "modal", :href => "/games"} Все игры
+      %a.btn.btn-inverse.btn-flat{"data-toggle" => "modal", :href => "/games/new"} Создать игру
+  %ul.section-title.clearfix
+    %li
+      %h3 Видео
+    %li.pull-right
+      %a.btn.btn-default{:href => "#"}
+        %i.fa.fa-film
+  %section.clearfix
+    .col-md-12.no-padding
+      %iframe{:allowfullscreen => "", :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/OHoGVlFcsQw", :width => "100%"}
+  %ul.section-title.clearfix
+    %li
+      %h3 Новости
+    %li.pull-right
+      %a.btn.btn-default{:href => "#"}
+        %i.fa.fa-th
+  / section #1
+  .row
+    .col-md-6
+      %section.clearfix.pull-left.no-margin
+        %h3
+          %a{:href => "#"} sQreen: «Нам необходимо победить»
+        .thumbnail
+          %img{:alt => "100%x100", "data-src" => "holder.js/100%x100", :src => "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NzAiIGhlaWdodD0iMTAwIj48cmVjdCB3aWR0aD0iNjcwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iI2VlZSIvPjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjMzNSIgeT0iNTAiIHN0eWxlPSJmaWxsOiNhYWE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LXNpemU6NDJweDtmb250LWZhbWlseTpBcmlhbCxIZWx2ZXRpY2Esc2Fucy1zZXJpZjtkb21pbmFudC1iYXNlbGluZTpjZW50cmFsIj42NzB4MTAwPC90ZXh0Pjwvc3ZnPg==", :style => "height: 100px; width: 100%; display: block;"}/
+        %p
+          В этом году в отборочном раунде The International появилась открытая квалификация. Это, теоретически, позволяет любой команде пройти отборочный этап и попасть в финалы. В этом соревновании есть свои фавориты. Журналисты сайта Navi-gaming пообщались с капитаном одной из команд-фаворитов — Халедом «sQreen» Эль-Хаббаш. 
+        .details
+          %i.fa.fa-calendar-o
+          Jan 18, 2014 - 10:00
+          %span.fa.fa-caret-right
+          %i.fa.fa-comments
+          2
+    / section #2
+    .col-md-6
+      %section.clearfix.pull-left.no-margin
+        %h3
+          %a{:href => "#"} Обучение основам вардинга
+        .thumbnail
+          %img{:alt => "100%x100", "data-src" => "holder.js/100%x100", :src => "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NzAiIGhlaWdodD0iMTAwIj48cmVjdCB3aWR0aD0iNjcwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iI2VlZSIvPjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjMzNSIgeT0iNTAiIHN0eWxlPSJmaWxsOiNhYWE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LXNpemU6NDJweDtmb250LWZhbWlseTpBcmlhbCxIZWx2ZXRpY2Esc2Fucy1zZXJpZjtkb21pbmFudC1iYXNlbGluZTpjZW50cmFsIj42NzB4MTAwPC90ZXh0Pjwvc3ZnPg==", :style => "height: 100px; width: 100%; display: block;"}/
+        %p
+          Как известно, мир Dota 2 очень разнообразен: большое количество героев, вещей, стратегий и возможностей на карте делают игру с одной стороны невероятно интересной, а с другой - довольно сложной. Многие люди даже близко не подозревают, сколько мелких особенностей скрывается на просторах их любимой игры.
+        .details
+          %i.fa.fa-calendar-o
+          Jan 18, 2014 - 10:00
+          %span.fa.fa-caret-right
+          %i.fa.fa-comments
+          2
+  .clearfix
+  %ul.section-title.clearfix
+    %li
+      %h3 Статьи
+    %li.pull-right
+      %a.btn.btn-default{:href => "#"}
+        %i.fa.fa-share
+  / section
+  %section.clearfix
+    .pull-left.col-md-2.no-padding
+      %img{:alt => "100%x100", "data-src" => "holder.js/100%x100", :src => "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMTQiIGhlaWdodD0iMTAwIj48cmVjdCB3aWR0aD0iMTE0IiBoZWlnaHQ9IjEwMCIgZmlsbD0iI2VlZSIvPjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjU3IiB5PSI1MCIgc3R5bGU9ImZpbGw6I2FhYTtmb250LXdlaWdodDpib2xkO2ZvbnQtc2l6ZToxMnB4O2ZvbnQtZmFtaWx5OkFyaWFsLEhlbHZldGljYSxzYW5zLXNlcmlmO2RvbWluYW50LWJhc2VsaW5lOmNlbnRyYWwiPjExNHgxMDA8L3RleHQ+PC9zdmc+", :style => "height: 100px; width: 100%; display: block;"}/
+    .col-md-10
+      %h3
+        %a{:href => "#"} Итоги третьего дня The Summit 3
+      %p
+        Третий день The Summit 3 принес первую драму, ведь именно в этот день турнир начали покидать первые команды. Этой ночью было сыгран на один матч больше — и в группе А, и в группе В осталось три коллектива, которые были вынуждены бороться за место во второй стадии финалов.  
+      .details
+        %i.fa.fa-calendar-o
+        Jan 18, 2014 - 10:00
+        %span.fa.fa-caret-right
+        %i.fa.fa-comments
+        %a{:href => "#"} 2
+  %button.btn-flat.btn.btn-primary.btn-lg.btn-block.btn-load{"data-loading-text" => "Loading...", :type => "button"} Еще больше...
