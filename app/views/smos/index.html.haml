@@ -1,0 +1,19 @@
+%h2 Подсчет нагрузки сервера
+.top-row{:style=>"position:relative;"}
+  .class-for-l0{:style=>"display:inline-block;float: left;margin: 180px 10px;font-weight:bold;"} L0
+  %canvas#myChart{:height => "400", :width => "400"} 
+  .inputs-fields{:style=>"display:inline-block;"}
+    %p Интенсивность заявок
+    %input{:type=>"text",:value=> "3", :id=>"chart-request"}
+    %p Интенсивность обслуживания
+    %input{:type=>"text",:value=> "4", :id=>"chart-response"}
+    %p Число серверов
+    %input{:type=>"text",:value=> "1", :id=>"chart-count-servers"}
+    %a{:class=>"btn btn-primary", :style=>"display:block; margin:10px;", :onclick=>"calculate()"} Посчитать
+    .class-for-l{:style=>"position:absolute; left:230px;bottom:4px;font-weight:bold;"} L
+.table-for-chart
+  %table{:class=>"table-striped", :style=>"width:100%"}
+    %tr{:class=>"tr-header"}
+      %th n
+      %th L0
+      %th L

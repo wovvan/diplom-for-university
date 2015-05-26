@@ -1,0 +1,2 @@
+module SmosHelper
+end

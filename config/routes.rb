@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :smos
   resources :games
   resources :videos
 
